@@ -6,7 +6,8 @@
 #  Created by Saravanan S on 04/06/19.
 #  Copyright © 2019 zoho. All rights reserved.
 
-source sdk_info
+DIR="$(command dirname -- "${0}")"
+source "${DIR}/sdk_info"
 
 projectname="."
 projectfilepath=""
