@@ -25,7 +25,7 @@ LICENSE
 
 spec.homepage         = "https://zoho.com"
 spec.author           = { "Saravanan Selvam" => "ssaravanan@zohocorp.com", "Prakash Redrouthu" => "prakash.redrouthu@zohocorp.com" }
-spec.source = { :git => 'https://github.com/zoho/Apptics.git', :tag => '#{spec.version}' }
+spec.source = { :git => 'https://github.com/zoho/Apptics.git', :tag => 'v#{spec.version}' }
 spec.vendored_frameworks = 'Apptics.xcframework'
 spec.source_files = 'scripts/*'
 spec.preserve_paths = 'scripts/*'
