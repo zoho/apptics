@@ -18,31 +18,31 @@
 		</data>
 		<key>PromotedAppsController.nib/objects-11.0+.nib</key>
 		<data>
-		tPUqYQ1Oi1RNrNf5YI/FTwfrG1w=
+		GsPmoHFsqZDIEPBhgby51VcpizQ=
 		</data>
 		<key>PromotedAppsController.nib/runtime.nib</key>
 		<data>
-		Z86zOqw7PTUrvRUCkRkc8Es8KGM=
+		o6jnlAYQamSsMhIndzXnBL4e5Jg=
 		</data>
 		<key>ZAAppUpdateAlert.nib</key>
 		<data>
-		pZrk/hnh+BN7orc992o/aPo3pmE=
+		sliFMFfL85a6bDTzh+rey7d3i7I=
 		</data>
 		<key>ZACustomAlertController.nib</key>
 		<data>
-		gNywuailBa1LeZdns0yuHs2XuEY=
+		LpUwriOuoS3yesn9PAYTrGT6m88=
 		</data>
 		<key>ZAPIIMTableViewCell.nib</key>
 		<data>
-		h/ZBB1qQGNUKeiqiO+KwzDm8WrA=
+		QEO/1BaXd9REI4yhMnC07wZPTIM=
 		</data>
 		<key>ZAStoryboard.storyboardc/8oG-LS-Vhe-view-2Jk-9I-SIC.nib/objects-11.0+.nib</key>
 		<data>
-		L8C5Eg5z370Sd0FUU3H1sh4awE4=
+		l4xLYf7nbRMfPipGl/t5pLM9ecU=
 		</data>
 		<key>ZAStoryboard.storyboardc/8oG-LS-Vhe-view-2Jk-9I-SIC.nib/runtime.nib</key>
 		<data>
-		6kxz0z36zqG83lja4LKzInW8bSE=
+		f6gjceBY26w+oFaOo2WiMXO37UY=
 		</data>
 		<key>ZAStoryboard.storyboardc/Info.plist</key>
 		<data>
@@ -50,19 +50,19 @@
 		</data>
 		<key>ZAStoryboard.storyboardc/pIIManagerController.nib/objects-11.0+.nib</key>
 		<data>
-		nR+12ISWmqizI2b3CaktkB6Plbo=
+		gDSALlmueBsShS7dyX3rAWt3NHc=
 		</data>
 		<key>ZAStoryboard.storyboardc/pIIManagerController.nib/runtime.nib</key>
 		<data>
-		ICabmDkqot7A3ytIbwOQCxGWPD4=
+		VgJ7fRQ7dYkk0dxaidAepUOxxdo=
 		</data>
 		<key>ZAUserConsentAlert.nib</key>
 		<data>
-		d7MUA2oawISDbIj/eFmLBCRQYSE=
+		8ySZnw618oKIODaqAad2Bf5TI/M=
 		</data>
 		<key>ZAUserConsentAlertV2.nib</key>
 		<data>
-		OZbPjmF1oh8WowOZN/RaJ8YaHvs=
+		87xy067tnNgPbKKjmoxW/0ZKnHY=
 		</data>
 		<key>app_update.tiff</key>
 		<data>
@@ -191,7 +191,7 @@
 		</dict>
 		<key>promotedAppViewCell.nib</key>
 		<data>
-		BEThUxMtDsozsuzAnqPrlCQWooE=
+		SmSiZfAHLlSvEf6i7mUGD4hhlAo=
 		</data>
 		<key>pt-BR.lproj/ZAnalyticsLocalizable.strings</key>
 		<dict>
@@ -310,77 +310,77 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			tPUqYQ1Oi1RNrNf5YI/FTwfrG1w=
+			GsPmoHFsqZDIEPBhgby51VcpizQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			lDW8qb+wCD0C7jBGiN4kCe58e4rKJoSa+LLui1NLDos=
+			4mpcUnH8gdrkK7t2w/13oPxI2w/pQCyBPESO6IZzZpM=
 			</data>
 		</dict>
 		<key>PromotedAppsController.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Z86zOqw7PTUrvRUCkRkc8Es8KGM=
+			o6jnlAYQamSsMhIndzXnBL4e5Jg=
 			</data>
 			<key>hash2</key>
 			<data>
-			Kihk6t0wULAuBhGPqt4S1lDK68cbDs6coZFbMhe7nhg=
+			BI/3WQhLgMU4Q0PURSzScXay40gJl2hiMyodA1+c7eI=
 			</data>
 		</dict>
 		<key>ZAAppUpdateAlert.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pZrk/hnh+BN7orc992o/aPo3pmE=
+			sliFMFfL85a6bDTzh+rey7d3i7I=
 			</data>
 			<key>hash2</key>
 			<data>
-			d1QkcKYSvzQxxadRl2Y61BwvhBtvkSgCN/Isz+f/Sug=
+			zk75c3Qnwe3A7iFOtVATnUZGobxpNARLDqG8y4c4IJc=
 			</data>
 		</dict>
 		<key>ZACustomAlertController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gNywuailBa1LeZdns0yuHs2XuEY=
+			LpUwriOuoS3yesn9PAYTrGT6m88=
 			</data>
 			<key>hash2</key>
 			<data>
-			g53+N3Gz0tTRHXlx13q7SZuFlY2HsfPUePR9qNdVmS0=
+			BiizrdbJy6+SOVqRQ9biwSuNFgx1GnAVFOBXEDEhCgM=
 			</data>
 		</dict>
 		<key>ZAPIIMTableViewCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			h/ZBB1qQGNUKeiqiO+KwzDm8WrA=
+			QEO/1BaXd9REI4yhMnC07wZPTIM=
 			</data>
 			<key>hash2</key>
 			<data>
-			JEhAjMFqWAbJQj+8DFQv2IoZyx7qvAxYpLwd6NcsSfQ=
+			3I9wifGqOVEsb4IyHfOP7WUSNdoeydHw2mWYpU9ueD8=
 			</data>
 		</dict>
 		<key>ZAStoryboard.storyboardc/8oG-LS-Vhe-view-2Jk-9I-SIC.nib/objects-11.0+.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			L8C5Eg5z370Sd0FUU3H1sh4awE4=
+			l4xLYf7nbRMfPipGl/t5pLM9ecU=
 			</data>
 			<key>hash2</key>
 			<data>
-			UxWk+UzkVx2gn7p3QYnJNwTrxoOWQPBE3ZjGwU2x4a4=
+			s9+/2UBe2q72pfx4rqbFnnlqKJZaToqhvSDG6K+N078=
 			</data>
 		</dict>
 		<key>ZAStoryboard.storyboardc/8oG-LS-Vhe-view-2Jk-9I-SIC.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6kxz0z36zqG83lja4LKzInW8bSE=
+			f6gjceBY26w+oFaOo2WiMXO37UY=
 			</data>
 			<key>hash2</key>
 			<data>
-			tlo47x6ZRPBd5/w/viYR5qdHQPhVVLNEJmx4o06U38M=
+			7xZhI3z+gbRaGAflkIOE9zbAzYpnPCyR5IBrsZYCRkc=
 			</data>
 		</dict>
 		<key>ZAStoryboard.storyboardc/Info.plist</key>
@@ -398,44 +398,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nR+12ISWmqizI2b3CaktkB6Plbo=
+			gDSALlmueBsShS7dyX3rAWt3NHc=
 			</data>
 			<key>hash2</key>
 			<data>
-			SlValrvb7wavtskXYWOPa3QpB2v4MQhNU4oE4v3QHNY=
+			jE2FCwJ9kXEjO5mZ7T80tz1ogydyvshPFkQZX7OA1Vs=
 			</data>
 		</dict>
 		<key>ZAStoryboard.storyboardc/pIIManagerController.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ICabmDkqot7A3ytIbwOQCxGWPD4=
+			VgJ7fRQ7dYkk0dxaidAepUOxxdo=
 			</data>
 			<key>hash2</key>
 			<data>
-			V7gvM1Y9qNpbFogee9XdCthFuhBGfBYJRrLL03EFvzY=
+			1+MmFvpqbRqv8S52gmoq5zB3HnvvPH9L6cGskNq1W3I=
 			</data>
 		</dict>
 		<key>ZAUserConsentAlert.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			d7MUA2oawISDbIj/eFmLBCRQYSE=
+			8ySZnw618oKIODaqAad2Bf5TI/M=
 			</data>
 			<key>hash2</key>
 			<data>
-			7q1/A1STwGwkp1N01MU/b2YPQpE8rvXXk0VZnQf7HS0=
+			SHVH36BMJtzXa0ooyG41Hn/Oazm27QFrNyNcumhtMno=
 			</data>
 		</dict>
 		<key>ZAUserConsentAlertV2.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OZbPjmF1oh8WowOZN/RaJ8YaHvs=
+			87xy067tnNgPbKKjmoxW/0ZKnHY=
 			</data>
 			<key>hash2</key>
 			<data>
-			CgeUwJY34ZrHfO0Px2BNXO9z+DxnfEiEPC+y/g7/HBs=
+			jRhHaUG21Y8WHK6CBqoZcKnOgdJuVplwmJ+xIaID9WI=
 			</data>
 		</dict>
 		<key>app_update.tiff</key>
@@ -633,11 +633,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BEThUxMtDsozsuzAnqPrlCQWooE=
+			SmSiZfAHLlSvEf6i7mUGD4hhlAo=
 			</data>
 			<key>hash2</key>
 			<data>
-			WBv/RQ+WjhMMAylc/H1Wy/mrRkP8CpNkejaM2eETw34=
+			u/Q0mz9bZIcx7pY/9J8sYnTHmIvtZr58UvoZ7ZqnExM=
 			</data>
 		</dict>
 		<key>pt-BR.lproj/ZAnalyticsLocalizable.strings</key>

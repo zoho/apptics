@@ -25,6 +25,7 @@
 
 static NSString *kJA_UserProperties = @"ja_userproperties";
 static NSString *kJA_FirstTimeInstallation = @"kJA_FirstTimeInstallation";
+static NSString *kJA_Migration1 = @"kJA_Migration1";
 static NSString * kJA_UserEmail = @"ja_userpropertyEmail";
 
 static NSString  *kJA_DCLPrefix = @"ja-dclPfx";
