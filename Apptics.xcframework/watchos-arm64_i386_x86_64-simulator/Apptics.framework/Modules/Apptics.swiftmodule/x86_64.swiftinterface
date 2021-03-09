@@ -6,8 +6,8 @@ import Foundation
 import Swift
 public func trackError(_ error: @autoclosure () -> Foundation.NSError, file: Swift.StaticString = #file, line: Swift.UInt = #line, function: Swift.StaticString = #function)
 public func trackException(_ exception: @autoclosure () -> Foundation.NSException, file: Swift.StaticString = #file, line: Swift.UInt = #line, function: Swift.StaticString = #function)
-public func ZALogVerbose(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, line: Swift.UInt = #line, function: Swift.StaticString = #function)
-public func ZALogDebug(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, line: Swift.UInt = #line, function: Swift.StaticString = #function)
-public func ZALogInfo(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, line: Swift.UInt = #line, function: Swift.StaticString = #function)
-public func ZALogWarn(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, line: Swift.UInt = #line, function: Swift.StaticString = #function)
-public func ZALogError(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, line: Swift.UInt = #line, function: Swift.StaticString = #function)
+public func APLogVerbose(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, line: Swift.UInt = #line, function: Swift.StaticString = #function)
+public func APLogDebug(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, line: Swift.UInt = #line, function: Swift.StaticString = #function)
+public func APLogInfo(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, line: Swift.UInt = #line, function: Swift.StaticString = #function)
+public func APLogWarn(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, line: Swift.UInt = #line, function: Swift.StaticString = #function)
+public func APLogError(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, line: Swift.UInt = #line, function: Swift.StaticString = #function)

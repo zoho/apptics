@@ -57,12 +57,12 @@ class AppticsModerator
       objch_fc.concat("#import <Apptics/APEventsEnum.h>\n")
       objch_fc.concat("#import <Apptics/Apptics.h>\n")
       objch_fc.concat("#import <Apptics/Analytics.h>\n")
-      objch_fc.concat("#import <Apptics/ZABundle.h>\n")
+      objch_fc.concat("#import <Apptics/APBundle.h>\n")
       objch_fc.concat("#else\n")
       objch_fc.concat("#import \"APEventsEnum.h\"\n")
       objch_fc.concat("#import \"Apptics.h\"\n")
       objch_fc.concat("#import \"Analytics.h\"\n")
-      objch_fc.concat("#import \"ZABundle.h\"\n")
+      objch_fc.concat("#import \"APBundle.h\"\n")
       objch_fc.concat("#endif\n")
       
       objch_fc.concat("typedef enum {\n")
@@ -82,12 +82,12 @@ class AppticsModerator
       
       if event_hash != nil
       objcm_fc_m0.concat("+ (void) setCustomEventsProtocol;{\n")
-      objcm_fc_m0.concat("\t[ZABundle getInstance].eventsProtocolClass=#{$fileName}.class;\n}\n\n")
+      objcm_fc_m0.concat("\t[APBundle getInstance].eventsProtocolClass=#{$fileName}.class;\n}\n\n")
       end
       
       if api_hash != nil
       objcm_fc_m0.concat("+ (void) setApiTrackingProtocol;{\n")
-      objcm_fc_m0.concat("\t[ZABundle getInstance].apiProtocolClass=#{$apiClassName}.class;\n}\n\n")
+      objcm_fc_m0.concat("\t[APBundle getInstance].apiProtocolClass=#{$apiClassName}.class;\n}\n\n")
       end      
       
       if event_hash != nil
@@ -306,13 +306,13 @@ class AppticsModerator
       
       if event_hash != nil
       swiftc_fc_ap_ext.concat("\t@objc class func setCustomEventsProtocol() {\n")
-      swiftc_fc_ap_ext.concat("\t\tZABundle.getInstance().eventsProtocolClass=#{$fileName}.self\n")
+      swiftc_fc_ap_ext.concat("\t\tAPBundle.getInstance().eventsProtocolClass=#{$fileName}.self\n")
       swiftc_fc_ap_ext.concat("\t}\n")
       end
       
       if api_hash != nil
       swiftc_fc_ap_ext.concat("\n\t@objc class func setApiTrackingProtocol() {\n")
-      swiftc_fc_ap_ext.concat("\t\tZABundle.getInstance().apiProtocolClass=#{$apiClassName}.self\n")
+      swiftc_fc_ap_ext.concat("\t\tAPBundle.getInstance().apiProtocolClass=#{$apiClassName}.self\n")
       swiftc_fc_ap_ext.concat("\t}\n")
       end
       

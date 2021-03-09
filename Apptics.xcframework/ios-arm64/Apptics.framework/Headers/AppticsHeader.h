@@ -10,13 +10,13 @@
 
 #import "Apptics.h"
 #import "Analytics.h"
-#import "ZARemoteConfig.h"
-#import "ZARemoteConfigValue.h"
+#import "APRemoteConfig.h"
+#import "APRemoteConfigValue.h"
 #import "FeedbackKit.h"
-#import "ZAAPIManager.h"
-#import "ZALog.h"
-#import "ZABundle.h"
+#import "APAPIManager.h"
+#import "APLog.h"
+#import "APBundle.h"
 #import "WCSessionSwizzlerDelegate.h"
-#import "ZARemoteConfig.h"
-
+#import "APRemoteConfig.h"
+#import "APRateUs.h"
 #endif /* AppticsHeader_h */

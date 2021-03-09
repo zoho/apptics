@@ -10,11 +10,11 @@
 
 #import "Apptics.h"
 #import "Analytics.h"
-#import "ZALog.h"
-#import "ZARateusObject.h"
-#import "ZARemoteConfig.h"
-#import "ZARemoteConfigValue.h"
-#import "ZAAPIManager.h"
+#import "APLog.h"
+#import "APRateusObject.h"
+#import "APRemoteConfig.h"
+#import "APRemoteConfigValue.h"
+#import "APAPIManager.h"
 #import "APCustomHandler.h"
 
 #endif /* AppticsHeader_h */

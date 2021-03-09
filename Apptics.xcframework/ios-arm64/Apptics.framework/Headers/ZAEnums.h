@@ -100,24 +100,24 @@ typedef NS_ENUM(NSInteger, JAStatus)
 static NSString* const kApstatusSuccess = @"success";
 static NSString* const kApstatusFailure = @"failure";
 
-typedef NS_ENUM(NSInteger, JATrackingStatus)
+typedef NS_ENUM(NSInteger, APTrackingStatus)
 {
-  JATrackingStatusOff = 0,
-  JATrackingStatusOn
+  APTrackingStatusOff = 0,
+  APTrackingStatusOn
 };
 
-typedef NS_ENUM(NSInteger, JACrashStatus)
+typedef NS_ENUM(NSInteger, APCrashStatus)
 {
-  JACrashStatusOff = 0,
-  JACrashStatusOn
+  APCrashStatusOff = 0,
+  APCrashStatusOn
 };
 
-typedef NS_ENUM(NSInteger, JAPIIStatus)
+typedef NS_ENUM(NSInteger, APPrivacyStatus)
 {
-  JAPIIStatusTrackingAuthOff = -2,
-  JAPIIStatusUnknown,//New user
-  JAPIIStatusUnAuthorized,//User decided to opt-out
-  JAPIIStatusAuthorized//User opted-in
+  APPrivacyStatusTrackingAuthOff = -2,
+  APPrivacyStatusUnknown,//New user
+  APPrivacyStatusUnAuthorized,//User decided to opt-out
+  APPrivacyStatusAuthorized//User opted-in
 };
 
 typedef NS_ENUM(NSInteger, ZAPrivacyStatus)
@@ -229,14 +229,14 @@ typedef NS_ENUM(NSUInteger, ZUButtonType)
  *  Log levels are used to print and push the levels of logs to the server.
  */
 
-typedef NS_ENUM(NSUInteger, ZALogLevel){
-  ZALogLevelOff       = 0,
-  ZALogLevelVerbose,
-  ZALogLevelDebug,
-  ZALogLevelInfo,
-  ZALogLevelWarning,
-  ZALogLevelError,
-  ZALogLevelAll
+typedef NS_ENUM(NSUInteger, APLogLevel){
+  APLogLevelOff       = 0,
+  APLogLevelVerbose,
+  APLogLevelDebug,
+  APLogLevelInfo,
+  APLogLevelWarning,
+  APLogLevelError,
+  APLogLevelAll
 };
 
 

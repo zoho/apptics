@@ -9,22 +9,22 @@
 #import <Foundation/Foundation.h>
 #import "ZAEnums.h"
 #import "APTheme.h"
-#import "ZALog.h"
+#import "APLog.h"
 #import "Analytics.h"
 #import "APCustomHandler.h"
 
 #if ZA_REMOTE_CONFIG
-#import "ZARemoteConfig.h"
-#import "ZARemoteConfigValue.h"
+#import "APRemoteConfig.h"
+#import "APRemoteConfigValue.h"
 #endif
 
 #if ZA_API_TRACKER
-#import "ZAAPIManager.h"
+#import "APAPIManager.h"
 #endif
 
 //#import "AppticsConfig.h"
 //#import "FeedbackKit.h"
-//#import "ZAAPIManager.h"
+//#import "APAPIManager.h"
 
 #define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 
@@ -539,7 +539,7 @@ void ZATrackException(const char *file, int lineNumber, const char *functionName
  @param status boolean
  */
 
-+ (void) enableTracking : (BOOL) status;
++ (void) setTrackingStatus : (BOOL) status;
 
 /**
  Get the status of auto sending crash report.
@@ -563,7 +563,7 @@ void ZATrackException(const char *file, int lineNumber, const char *functionName
  @return YES if enabled else NO.
  */
 
-+ (BOOL) pIITrackingStatus;
++ (BOOL) personalInfoTrackingStatus;
 
 /**
  Set personalized data with usage tracking which includes userID for current user.
@@ -571,7 +571,7 @@ void ZATrackException(const char *file, int lineNumber, const char *functionName
  @param status boolean
  */
 
-+ (void) trackWithPII : (BOOL) status;
++ (void) setPersonalInfoTrackingStatus : (BOOL) status;
 
 /**
  Get if the user is logged in, use this value to show or hide 'include userID' in analytic settings.
@@ -580,45 +580,6 @@ void ZATrackException(const char *file, int lineNumber, const char *functionName
  */
 
 + (BOOL) isUserLoggedIn;
-
-/**
- Get PII status for a given user.
- 
- @param email String
- 
- @return JAPIIStatus enum.
- */
-+ (JAPIIStatus) getPIIStatusForEmail : (NSString* _Nonnull) email __deprecated_msg("use getPrivacyStatusOfUser: method instead.");
-
-
-/**
- Get privacy status for a given user.
- 
- @param userID String
- 
- @return JAPIIStatus enum.
- */
-+ (JAPIIStatus) getPrivacyStatusOfUser : (NSString* _Nonnull) userID;
-
-/**
- Get PII status for a given user.
- 
- @param email String, BD String.
- 
- @return JAPIIStatus enum.
- */
-
-+ (JAPIIStatus) getPIIStatusForEmail : (NSString* _Nonnull) email withBaseDomain:(NSString*_Nonnull)BD __deprecated_msg("use getPrivacyStatusOfUser: withBaseDomain: method instead.");
-
-/**
- Get privacy status for a given user.
- 
- @param userID String, BD String.
- 
- @return JAPIIStatus enum.
- */
-
-+ (JAPIIStatus) getPrivacyStatusOfUser : (NSString* _Nonnull) userID withBaseDomain:(NSString*_Nonnull)BD;
 
 #pragma mark — Callbacks
 
@@ -787,106 +748,6 @@ Enable auto check for update by calling this method after initialising Apptics.
 
 + (void) setAppUpdateAction : (ZAUpdateAction) type updateInfo : (NSDictionary *_Nullable) updateInfo;
 
-#pragma mark — In-App Ratings and Reviews apis
-#if !TARGET_OS_WATCH
-/**
- Enable or disable rate us and review for your application.
- 
- @param status boolean
- */
-
-+ (void) enableRateUsAndReview : (BOOL) status;
-
-/**
- Call this method to reset all numbers during development.
- 
- - Warning:
- Don't call this method in App Store build.
-*/
-
-+ (void) storeReviewMasterReset;
-
-/**
- This method should be called initially, to stop SDK from showing the review prompt on fulfilling criteria.
- 
- @param status boolean
- */
-
-+(void) disableAutoPromptOnFulfillingCriteria : (bool) status;
-
-/**
- This method should be called manually where you want to show the review prompt.
- */
-
-+(void) showPromptOnFulfillingCriteria;
-
-
-#pragma mark Apis to customise In-App Ratings and Reviews
-
-/**
- Call this method in the callback method 'willDisplayReviewPrompt' of APCustomHandler class.
- */
-
-+ (void) showCustomReviewPrompt;
-
-/**
-This method will take you to the App store.
- 
-- Note:
- Call this method in the completion of custom review prompt when user taps on 'Rate in App Store' button.
-*/
-
-+ (void) takeToAppStoreReviewScreen;
-
-/**
-This method will open Feedback screen.
- 
-- Note:
- Call this method in the completion of custom review prompt when user taps on 'Send Feedback' button.
-*/
-
-+ (void) takeToFeedbackScreen;
-
-/**
-Set this true to mask the text detected in a screenshot by default. Setting to False will not mask by default but the user can still mask by tapping on individual text or By tapping on mask-all/unmask-all button.
-*/
-
-+ (void) setMaskTextByDefault:(BOOL)AlwaysOn;
-
-/**
-Call this method to update user action for App Store Review Screen when you open the Store Review on your own.
-*/
-
-+ (void) updateActionForAppStoreReview;
-
-/**
-Call this method to update user action for feedback when you open your custom feedback screen.
-*/
-
-+ (void) updateActionForFeedback;
-
-/**
- This method will mark review prompt shown for the current version of the app. Note: Call this method if you have used custom review prompt.
- 
- - Note:
- This should be called only if you show your custom prompt in 'willDisplayReviewPrompt' callback. Also the hitcount of sessions, events and screens will be reset.
- */
-
-+(void) updateAppRatingShownForCurrentVersion;
-
-/**
-This method will prompt ratings alert which will take you to the store.
- */
-
-+ (void) za_rateUsOnStore __deprecated_msg("use staticStoreReviewPrompt method instead.");
-
-/**
-This method will prompt ratings alert which will show the option to rate in appstore or send feedback, call this method in you apps' settings page.
- */
-
-+ (void) staticStoreReviewPrompt;
-
-#endif
 
 #pragma mark — Crash
 
@@ -896,23 +757,14 @@ This method will prompt ratings alert which will show the option to rate in apps
 
 + (void) crash;
 
-
-#pragma mark - Remote config
-
-/**
- Enable remote configure.
- */
-
-+ (void) enableRemoteConfig:(BOOL)status;
-
-#pragma mark - Cross Promotional Apps
-
-//#if APPTICS_SWIFT
-+(void) enableCrossPromotionalAppsList : (bool) status;
-
-/**
- Enable Promotional apps with this method.
-*/
+//#pragma mark - Cross Promotional Apps
+//
+////#if APPTICS_SWIFT
+//+(void) enableCrossPromotionalAppsList : (bool) status;
+//
+///**
+// Enable Promotional apps with this method.
+//*/
 
 +(id)getPromotionalAppsViewController : (NSString* _Nullable)sectionHeader1 : (NSString* _Nullable)sectionHeader2;
 /**

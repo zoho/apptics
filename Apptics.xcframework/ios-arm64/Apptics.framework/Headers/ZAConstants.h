@@ -8,7 +8,7 @@
 
 #ifndef ZAConstants_h
 #define ZAConstants_h
-#import "ZABundle.h"
+#import "APBundle.h"
 #define UIAPPLICATION_ACCESS (defined(IS_IOS) || defined(IS_TVOS))
 
 #define UIKIT_ACCESS (defined(IS_IOS) || defined(IS_TVOS) || defined(IS_WATCHOS))
@@ -17,7 +17,7 @@
 #define APP_LIFECYCLE_SUPPORT (defined(IS_IOS) || defined(IS_TVOS) || defined(IS_MACOS))
 
 #define NSLocalizedStringForZAnalytics(key,comment,tbl) \
-[[[ZABundle getInstance] getAnalyticLanguageBundle] localizedStringForKey:(key) value:@"" table:(tbl)]
+[[[APBundle getInstance] getAnalyticLanguageBundle] localizedStringForKey:(key) value:@"" table:(tbl)]
 
 #define ZAnalyticsLocalizedString(x) NSLocalizedStringForZAnalytics(x, @"", @"ZAnalyticsLocalizable")
 
@@ -125,8 +125,8 @@ static NSString * kJA_autoReviewImpressionLimit = @"kJA_autoReviewImpressionLimi
 static NSString * kJA_autoPromptedDate = @"kJA_autoPromptedDate";
 static NSString * kJA_promoted_apps = @"promotedApps";
 
-extern unsigned long long const ZALogMaxFileSize;
-extern NSUInteger         const ZALogMaxNumLogFiles;
+extern unsigned long long const APLogMaxFileSize;
+extern NSUInteger         const APLogMaxNumLogFiles;
 
 typedef void (*ZACrashPostCrashSignalCallback)(void *context);
 

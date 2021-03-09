@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZALog.h"
+#import "APLog.h"
 #import "ZAEnums.h"
 #import "APEventsEnum.h"
 
@@ -24,7 +24,7 @@
 #import "ZAAlertStyle.h"
 
 #ifdef ZA_REMOTE_CONFIG
-#import "ZARemoteConfig.h"
+#import "APRemoteConfig.h"
 #endif
 
 FOUNDATION_EXPORT double AnalyticsVersionNumber;
@@ -69,9 +69,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property BOOL enableAutoCheckForAppUpdate;
 
-@property BOOL enableRateUs;
+//@property BOOL enableRateUs;
 
-@property BOOL enableRemoteConfig;
+//@property BOOL enableRemoteConfig;
 
 @property BOOL enableCrossPromotions;
 
@@ -282,37 +282,9 @@ typedef void (^bgNonFatalRequestSuccessBlock)(void);
  *
  */
 
-#if !TARGET_OS_WATCH
+- (void) personalInfoTrackingStatus : (BOOL) status;
 
-- (void) enableRateUsAndReview:(BOOL)status;
-
-- (void) staticStoreReviewPrompt;
-
-- (void) showCustomReviewPrompt;
-
-- (void) takeToFeedbackScreen;
-
-- (void) updateActionForFeedback;
-
-- (void) takeToAppStoreReviewScreen;
-
-- (void) updateActionForAppStoreReview;
-
-- (void) showPromptOnFulfillingCriteria;
-
-- (void) disableAutoPromptOnFulfillingCriteria : (bool) status;
-
-- (void) setAppRatingShown;
-
-- (void) storeReviewMasterReset;
-
-- (void) setMaskTextByDefault:(BOOL)AlwaysOn;
-
-#endif
-
-- (void) trackWithPII : (BOOL) status;
-
-- (void) enableTracking : (BOOL) status;
+- (void) setTrackingStatus : (BOOL) status;
 
 - (void) registerDevice:(void (^_Nullable)(NSString* deviceId))success;
 
@@ -361,10 +333,6 @@ typedef void (^bgNonFatalRequestSuccessBlock)(void);
 
 - (NSString*_Nonnull) getDCLBD;
 
-- (JAPIIStatus) getPrivacyStatusForUser : (NSString* _Nonnull) userID withBaseDomain:(NSString*_Nonnull)BD;
-
--(JAPIIStatus) getPrivacyStatusForUser : (NSString* _Nonnull) userID;
-
 - (NSString*_Nonnull) getLocalizableStringForKey:(NSString *_Nonnull)key;
 
 -(BOOL) isAppExtension;
@@ -379,10 +347,6 @@ typedef void (^bgNonFatalRequestSuccessBlock)(void);
 
 -(void) setAppUpdateAction : (ZAUpdateAction) type updateInfo : (NSDictionary *) updateInfo;
 
-
-#pragma Remote config
-
-- (void) enableRemoteConfig:(BOOL)status;
 
 #pragma mark - Application delegates
 
