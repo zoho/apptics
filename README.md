@@ -1,5 +1,5 @@
 # Apptics 
-Apptics is a library that enables your app to send usage reports and data securly to our servers. You get Session tracking, Screen tracking and Crash Reporting. Which means, with minimal setup of initializing the framework you can get these three features working without any other configuration.
+Apptics is a library that enables your app to send in-app usage reports and data securly to our servers. You can track Sessions, Screens, and we also offer Crash Reporting. With minimal initialization of the framework, you get these features without doing any other configuration.
 
 ## Development Requirements: 
 
@@ -11,18 +11,18 @@ min Xcode version 9.0
  
 ## Getting Started
 
-* Visit this [link](https://apptics.zoho.com/ui/setup) to create a new project. This is the only thing you will need to get things started. 
+* All you need to do is create a project in the Apptics console using this link [link](https://apptics.zoho.com/ac/admin/setup).
 
 * You can use cocoapods to install Apptics in your project. 
 
-* Your Podfile will look something like this
+* Your Podfile should look something like this.
     
           target '[TARGET NAME]' do
             pod 'Apptics'
           end
 
           post_install do |installer|
-            puts system("sh ./Pods/Apptics/native/scripts/postinstall --prefix=\"AP\" --target-name=\"Main_Target_Name\"")    
+            puts system("sh ./Pods/Apptics/native/scripts/postinstaller --prefix=\"AP\" --target-name=\"[MAIN TARGET NAME STRING]\"")    
           end
           
      Parameters:
@@ -33,14 +33,14 @@ min Xcode version 9.0
      * `--use-swift`              Void - Generate class for swift
      * `--help`                      Show help banner of specified command
      
-     The script `postinstall` will add **AppticsExtension file(s) to your project, the class will have the events meta data.  
+     The script `postinstaller` will add **AppticsExtension file(s) to your project, the class will have the events meta data.  
      
 * Run `pod install` and make sure you are connected to the Zoho-corp lan or wifi to access the Git repo. 
 
-* Create new or select an existing application from quickstart page of your project to download  the `apptics-config.plist`, Once the download is complete, move the `apptics-config.plist` file to the root of your Xcode project and add it to the necessary targets.
+* Create a new application or select an existing application from the quickstart page to download  the `apptics-config.plist`. Move the `apptics-config.plist` to the root of your Xcode project and add it to the necessary targets.
 
 
-* In your `Appdelegate` class make sure you call initialize method in app launch.
+* In your `Appdelegate` class make sure you call the initialize method in app launch.
 
         Apptics.initialize(withVerbose: true)
 
@@ -50,23 +50,23 @@ min Xcode version 9.0
 
 
 ## **Important**:
-Make sure your build settings has the following when you ship your app so that you get proper symbolicated crashes.
+To get proper symbolicated crashes, make sure your build settings have the following when you ship your app.
  
 * Strip Build Symbols During Copy - **NO**
 * Strip Linked Product - **NO**
 * Strip Style - **Debugging Symbols**
 * Debug information format - **Dwarf with dSYM file**
 
-Create run script 
+Create a run script 
 * Add these lines to your Podfile 
 
         target '[TARGET NAME]' do
             
             pod 'Apptics' 
             
-            script_phase :name => 'Apptics pre build', :script => 'sh "$PODS_ROOT/Apptics/native/scripts/regappversion" --debug-mode=[INT DEBUG MODE] --target-name="[STRING TARGET NAME]"', :execution_position => :before_compile   
+            script_phase :name => 'Apptics pre build', :script => 'sh "./Pods/Apptics-SDK/scripts/regappversion" --debug-mode=[DEBUG MODE INT] --target-name="[TARGET NAME STRING]"', :execution_position => :before_compile  
             
-            script_phase :name => 'Apptics post build', :script => 'bash "$PODS_ROOT/Apptics/native/scripts/run" --upload-symbols=[BOOL] --release-configurations="[STRING CONFIGURATION NAMES]"', :execution_position => :after_compile
+            script_phase :name => 'Apptics post build', :script => 'bash "./Pods/Apptics-SDK/scripts/run" --upload-symbols=[STATUS BOOL] --release-configurations="[CONFIGURATIONS COMMA SEPARATED STRING]"', :execution_position => :after_compile
             
         end        
 
@@ -79,11 +79,11 @@ Create run script
 
 ## Session Tracking:
 
-Session tracking is out of the box, one foreground to background is considered a session. 
+A session is considered when the app goes from foreground to background.  
 
-## Event Tracking: 
+## In-app Event Tracking: 
 
-Tracking events is easy, you can group them, send custom properties and you can even time them. Check out the api to see what you can do. 
+In-app event is tracking the post-install activities using the custom events.
 
 ## Screen Tracking: 
 
@@ -92,18 +92,18 @@ Screens are automatically tracked and the time spent on each screen is noted in 
 
 ## Crash Reporting: 
 
-Crashes are automatically tracked and symbolicated in the server side. To get proper symbolicated reports please make sure to configure your build settings properly. 
+Crashes are automatically tracked and symbolicated. To get proper symbolicated reports please make sure to configure your build settings correctly. 
 
-The crashes will not be captured if the debugger is attached at the launch, so we suggest you to follow the below steps. 
+The crashes will not be captured if the debugger is attached at the launch, please follow the below steps. 
 
   * Run your app from Xcode and install it on your simulator or device.
   * Quit the app using the stop button.
   * Launch the app from home screen and try to crash the app by invoking our readymade method `Apptics.crash()`.
   * Run the app again in order to push the crash to the server and get symbolicated.
 
-Check the web console, you should find the crash.
+Check the web console, you should find the crash listed in the console.
 
-#### Missing dSYM? 
+#### Missing a dSYM? 
 
 Apptics includes a script to upload your project's dSYM automatically. The script is executed through the run-script in your projects build phases during the on-boarding process. There are some cases where dSYM upload fails because of network interruptions or if you have enabled bit code in your project. Missing dSYMs can be uploaded by following the below steps. 
 
@@ -132,15 +132,18 @@ You can use our protocols to customize the Analytics Settings, App updates and F
 Get callbacks for all the events at a single point by extending `ZACustomHandler`. It deals with user consent , crash consent, feedback, and ratings & reviews.
 
 ## Feedback and BugReporting
-We have a seperate module that does "Shake to Feedback" , please check it out if it suits your needs [here](https://prezoho.zohocorp.com/apptics/resources/iOS/inapp-feedback.html).
+
+A seperate module that does "Shake to Feedback", please check if it suits your needs [here](https://prezoho.zohocorp.com/apptics/resources/iOS/inapp-feedback.html).
         
 ## App Updates 
-Now you can prompt user to update the latest version of your app from the App Store.  
 
-Please check this guide before you start [here](https://prezoho.zohocorp.com/apptics/resources/iOS/inapp-updates.html).
+Now you can prompt user to update to the latest version of your app from the App Store.  
+
+Please check our  guide before you start [here](https://prezoho.zohocorp.com/apptics/resources/iOS/inapp-updates.html).
 
 ## Ratings and Reviews
-Engage With The Users To Learn About Their Experience using our tool. 
+
+Engage with your users and learn about their experience. Promopt them to rate your app after they have fulfilled the configured criteria.
 
 Check how to configure automatic ratings [here](https://prezoho.zohocorp.com/apptics/resources/iOS/inapp-ratings.html).
 
