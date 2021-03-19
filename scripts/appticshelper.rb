@@ -607,6 +607,7 @@ class AppticsBot
     end
        
     puts "export appversionid=#{data_hash['appversionid']}"
+    puts "export appreleaseversionid=#{data_hash['appreleaseversionid']}"
     puts "export aaid=#{data_hash['aaid']}"
     puts "export apid=#{data_hash['apid']}"
     puts "export mapid=#{data_hash['mapid']}"

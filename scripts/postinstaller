@@ -214,7 +214,7 @@ echo "AppticsModerator.main '$(getXcodeproj)','${targetname}','${targetgroup}','
 
 else
 echo "$STATUS Error occured ($?)"
-#echo $(ruby -r "$(dirname $0)/appticshelper.rb" -e "AppInfo.main '${PODS_ROOT}'")
+exit 1
 fi
 }
 

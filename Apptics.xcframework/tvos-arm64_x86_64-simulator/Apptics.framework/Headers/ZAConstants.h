@@ -120,6 +120,11 @@ static NSString * kJA_sessionHit = @"kJA_sessionHit";
 static NSString * kJA_eventHit = @"kJA_eventHit";
 static NSString * kJA_screenHit = @"kJA_screenHit";
 
+static NSString * KJA_canSendDataInMobileData = @"KJA_canSendDataInMobileData";
+static NSString * KJA_canSendDataInMobileDataOn = @"KJA_canSendDataInMobileData_On";
+static NSString * KJA_canSendDataInMobileDataOff = @"KJA_canSendDataInMobileData_Off";
+static NSString * KJA_canSendDataByDefault = @"KJA_canSendDataByDefault";
+
 static NSString * kJA_autoReviewAttempt = @"kJA_autoReviewAttempt";
 static NSString * kJA_autoReviewImpressionLimit = @"kJA_autoReviewImpressionLimit";
 static NSString * kJA_autoPromptedDate = @"kJA_autoPromptedDate";

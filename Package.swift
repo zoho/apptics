@@ -1,10 +1,10 @@
 // swift-tools-version:5.3
 import PackageDescription
 
-let version = "1.0.0-alpha"
+let version = "1.0.0-beta4"
 let package = Package(
     name: "Apptics",
-    platforms: [.iOS(.v10)],
+    platforms: [.macOS(.v10_10), .iOS(.v9), .tvOS(.v9), .watchOS(.v2)],
     products: [
         .library(
             name: "Apptics",
@@ -13,6 +13,6 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "Apptics",
-            url: "https://github.com/zoho/Apptics/blob/v\(version)/Apptics.zip?raw=true", checksum: "383f7951bc7429d85d19c7bc4edb2ce6b4fadcbf8e1ff47238a80c6c4f246c62")
+            url: "https://github.com/zoho/Apptics/releases/download/\(version)/Apptics.zip", checksum: "55c5f7dd10187b090056f4dc587c3d902587a5513148cd8454d432d5d768079b")
     ]
 )

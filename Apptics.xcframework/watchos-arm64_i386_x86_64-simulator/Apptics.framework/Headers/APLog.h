@@ -134,5 +134,7 @@ void ZLogExtensionInternal(const char *file, int lineNumber, const char *functio
 
 + (void) clearConsoleLogs;
 
++(BOOL) hasLogData : (NSString*) logsDirPath;
+
 @end
 NS_ASSUME_NONNULL_END

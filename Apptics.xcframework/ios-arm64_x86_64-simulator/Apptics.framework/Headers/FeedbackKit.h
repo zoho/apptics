@@ -95,9 +95,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL isReachable;
 
+@property (nonatomic, assign) BOOL reviewAndSendFeedback;
+
 @property (nonatomic, strong) NSArray *diagnoInfo;
 
 @property (strong,nonatomic) NSNumber *networkReachableStatus;
+@property (nonatomic) NSInteger *networkReachableVia;
 
 #pragma mark - Optional Properties
 
@@ -347,6 +350,8 @@ Set this true to mask the text detected in a screenshot by default. Setting to F
 */
 
 + (void) setMaskTextByDefault: (BOOL) alwaysOn;
+
++ (void) showInfoToUserBeforeSendingFeedback : (BOOL) status;
 
 @end
 

@@ -230,33 +230,33 @@ fi
 
 BUNDLE_VERSION=${CURRENT_PROJECT_VERSION}
 if [ "$BUNDLE_VERSION" == "" ]; then
-BUNDLE_VERSION=$(/usr/libexec/PlistBuddy -c 'Print AppVersionInfo:BUNDLE_VERSION' "${AP_INFO_FILE_NAME}")
+BUNDLE_VERSION=$(/usr/libexec/PlistBuddy -c 'Print APP_VERSION_META:BUNDLE_VERSION' "${AP_INFO_FILE_NAME}")
 fi
 
 BUNDLE_SHORT_VERSION=${MARKETING_VERSION}
 if [ "$BUNDLE_SHORT_VERSION" == "" ]; then
-BUNDLE_SHORT_VERSION=$(/usr/libexec/PlistBuddy -c 'Print AppVersionInfo:BUNDLE_SHORT_VERSION' "${AP_INFO_FILE_NAME}")
+BUNDLE_SHORT_VERSION=$(/usr/libexec/PlistBuddy -c 'Print APP_VERSION_META:BUNDLE_SHORT_VERSION' "${AP_INFO_FILE_NAME}")
 fi
 
-APP_VERSION_ID=$(/usr/libexec/PlistBuddy -c 'Print AppVersionInfo:APP_VERSION_ID' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
+APP_VERSION_ID=$(/usr/libexec/PlistBuddy -c 'Print APP_VERSION_META:APP_VERSION_ID' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
   
-AAID=$(/usr/libexec/PlistBuddy -c 'Print AppVersionInfo:AAID' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
+AAID=$(/usr/libexec/PlistBuddy -c 'Print APP_VERSION_META:AAID' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
 
-APID=$(/usr/libexec/PlistBuddy -c 'Print AppVersionInfo:APID' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
+APID=$(/usr/libexec/PlistBuddy -c 'Print APP_VERSION_META:APID' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
 
-RSAKEY=$(/usr/libexec/PlistBuddy -c 'Print AppVersionInfo:RSAKEY' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
+RSAKEY=$(/usr/libexec/PlistBuddy -c 'Print APP_VERSION_META:RSAKEY' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
 
-PLATFORM_ID=$(/usr/libexec/PlistBuddy -c 'Print AppVersionInfo:PLATFORM_ID' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
+PLATFORM_ID=$(/usr/libexec/PlistBuddy -c 'Print APP_VERSION_META:PLATFORM_ID' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
 #this should not be loaded from Apptics-config.plist
 #APPTICS_SDK_ID=$(/usr/libexec/PlistBuddy -c 'Print APPTICS_SDK_ID' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
 
-ZA_BUNDLE_VERSION=$(/usr/libexec/PlistBuddy -c 'Print AppVersionInfo:BUNDLE_VERSION' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
+ZA_BUNDLE_VERSION=$(/usr/libexec/PlistBuddy -c 'Print APP_VERSION_META:BUNDLE_VERSION' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
 
-ZA_BUNDLE_SHORT_VERSION=$(/usr/libexec/PlistBuddy -c 'Print AppVersionInfo:BUNDLE_SHORT_VERSION' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
+ZA_BUNDLE_SHORT_VERSION=$(/usr/libexec/PlistBuddy -c 'Print APP_VERSION_META:BUNDLE_SHORT_VERSION' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
 
-ZA_APPTICS_SDK_ID=$(/usr/libexec/PlistBuddy -c 'Print AppVersionInfo:APPTICS_SDK_ID' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
+ZA_APPTICS_SDK_ID=$(/usr/libexec/PlistBuddy -c 'Print APP_VERSION_META:APPTICS_SDK_ID' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
 
-ZA_APPTICS_DEBUG_MODE=$(/usr/libexec/PlistBuddy -c 'Print AppVersionInfo:APPTICS_DEBUG_MODE' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
+ZA_APPTICS_DEBUG_MODE=$(/usr/libexec/PlistBuddy -c 'Print APP_VERSION_META:APPTICS_DEBUG_MODE' "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "")
 
 SERVER_URL=$(/usr/libexec/PlistBuddy -c 'Print SERVER_URL' "${ZA_INFOPLIST_FILE}")
 
@@ -271,7 +271,7 @@ printValueForKey(){
 
 key=$1
 
-echo "$key : $(/usr/libexec/PlistBuddy -c "Print AppVersionInfo:$key" "${ZA_INFOPLIST_FILE}")"
+echo "$key : $(/usr/libexec/PlistBuddy -c "Print APP_VERSION_META:$key" "${ZA_INFOPLIST_FILE}")"
 
 }
 
@@ -282,16 +282,16 @@ value=$2
 
 echo "$key : $value"
 
-ID=$(/usr/libexec/PlistBuddy -c "Print AppVersionInfo:$key" "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "null")
+ID=$(/usr/libexec/PlistBuddy -c "Print APP_VERSION_META:$key" "${ZA_INFOPLIST_FILE}" 2>/dev/null || printf "null")
 echo "ID : ${ID}"
 if [ "${ID}" == "null" ]; then
-$(/usr/libexec/PlistBuddy -c "Add :AppVersionInfo:$key string $value" "${ZA_INFOPLIST_FILE}")
+$(/usr/libexec/PlistBuddy -c "Add :APP_VERSION_META:$key string $value" "${ZA_INFOPLIST_FILE}")
 else
-$(/usr/libexec/PlistBuddy -c "Set :AppVersionInfo:$key $value" "${ZA_INFOPLIST_FILE}")
+$(/usr/libexec/PlistBuddy -c "Set :APP_VERSION_META:$key $value" "${ZA_INFOPLIST_FILE}")
 fi
 }
 
-fetchAppVersionInfo() {
+fetchAPP_VERSION_META() {
 
 if [ "${DEBUG_MODE}" != "${ZA_APPTICS_DEBUG_MODE}" ] || [ "${APPTICS_SDK_ID}" != "${ZA_APPTICS_SDK_ID}" ] || [ "${BUNDLE_VERSION}" != "${ZA_BUNDLE_VERSION}" ] || [ "${BUNDLE_SHORT_VERSION}" != "${ZA_BUNDLE_SHORT_VERSION}" ] || [ "${APP_VERSION_ID}" == "" ] || [ "${AAID}" == "" ] || [ "${APID}" == "" ] || [ "${PLATFORM_ID}" == "" ] || [ "${APPTICS_SDK_ID}" == "" ] || [ "${RSAKEY}" == "" ]; then
   
@@ -307,6 +307,7 @@ if [ "${DEBUG_MODE}" != "${ZA_APPTICS_DEBUG_MODE}" ] || [ "${APPTICS_SDK_ID}" !=
   $(ruby -r "$(command dirname -- "${0}")/appticshelper.rb" -e "AppticsBot.main '${out_file}'")
   echo "rsakey $rsakey "
   checkAndUpdate "APP_VERSION_ID" "$appversionid"
+  checkAndUpdate "APP_RELEASE_VERSION_ID" "$appreleaseversionid"
   checkAndUpdate "AAID" "$aaid"
   checkAndUpdate "APID" "$apid"
   checkAndUpdate "MAPID" "$mapid"
@@ -325,6 +326,7 @@ if [ "${DEBUG_MODE}" != "${ZA_APPTICS_DEBUG_MODE}" ] || [ "${APPTICS_SDK_ID}" !=
 else
   echo "App version is already registered"
   printValueForKey "APP_VERSION_ID"
+  printValueForKey "APP_RELEASE_VERSION_ID"
   printValueForKey "AAID"
   printValueForKey "APID"
   printValueForKey "MAPID"
@@ -340,4 +342,4 @@ fi
 
 }
 
-fetchAppVersionInfo $1
+fetchAPP_VERSION_META $1

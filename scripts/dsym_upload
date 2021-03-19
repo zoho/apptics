@@ -167,9 +167,9 @@ OS=${PLATFORM}
 fi
 
 
-APP_VERSION_ID=$(/usr/libexec/PlistBuddy -c 'Print AppVersionInfo:APP_VERSION_ID' "${ZA_INFOPLIST_FILE}")
-PLATFORM_ID=$(/usr/libexec/PlistBuddy -c 'Print AppVersionInfo:PLATFORM_ID' "${ZA_INFOPLIST_FILE}")
-APID=$(/usr/libexec/PlistBuddy -c 'Print AppVersionInfo:APID' "${ZA_INFOPLIST_FILE}")
+APP_VERSION_ID=$(/usr/libexec/PlistBuddy -c 'Print APP_VERSION_META:APP_VERSION_ID' "${ZA_INFOPLIST_FILE}")
+PLATFORM_ID=$(/usr/libexec/PlistBuddy -c 'Print APP_VERSION_META:PLATFORM_ID' "${ZA_INFOPLIST_FILE}")
+APID=$(/usr/libexec/PlistBuddy -c 'Print APP_VERSION_META:APID' "${ZA_INFOPLIST_FILE}")
 
 
 echo "Plist Path : ${ZA_INFOPLIST_FILE}"
@@ -278,6 +278,7 @@ echo "Cleaning up dSYM archive from temp dir..."
 /bin/rm -rv "${DSYM_ZIP_FPATH}"
 else
 echo "dSYM upload failed ($?)"
+exit 1
 fi
 
 # Remove dSYM archive from tmp dir

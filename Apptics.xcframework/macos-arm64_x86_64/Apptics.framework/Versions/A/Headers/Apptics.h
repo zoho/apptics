@@ -12,19 +12,25 @@
 #import "APLog.h"
 #import "Analytics.h"
 #import "APCustomHandler.h"
+#import "AppticsConfig.h"
 
-#if ZA_REMOTE_CONFIG
+#if AP_RATE_US
+#import "APRateUs.h"
+#endif
+
+#if AP_REMOTE_CONFIG
 #import "APRemoteConfig.h"
 #import "APRemoteConfigValue.h"
 #endif
 
-#if ZA_API_TRACKER
+#if AP_API_TRACKER
 #import "APAPIManager.h"
 #endif
 
-//#import "AppticsConfig.h"
-//#import "FeedbackKit.h"
-//#import "APAPIManager.h"
+#if AP_FEEDBACK_KIT
+#import "FeedbackKit.h"
+#endif
+
 
 #define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 
@@ -51,6 +57,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark — initialization
 
+/**
+ *  This method call will perform initialisation of Apptics framework.
+ *
+ */
+
++ (void)initializeWithVerbose : (BOOL) verbose config: (nonnull AppticsConfig *) config;
+#if TARGET_OS_IOS || TARGET_OS_OSX || TARGET_OS_TVOS
+NS_EXTENSION_UNAVAILABLE("don't use this method in your extensions")
+#endif
+;
   /**
    *  This method call will perform initialisation of Apptics framework.
    *
@@ -64,6 +80,8 @@ NS_EXTENSION_UNAVAILABLE("don't use this method in your extensions")
 
 #pragma mark — Config apis
 
++ (void) setConfig:(nonnull AppticsConfig *) config;
+    
 /**
  
  For any configuration changes to get reflect in the App.
@@ -102,7 +120,7 @@ NS_EXTENSION_UNAVAILABLE("don't use this method in your extensions")
  @param status  BOOL
  */
 
-+ (void) setEnableBackgroundTask:(BOOL) status;
++ (void) setEnableBackgroundTask:(BOOL) status API_AVAILABLE(ios(13.0), tvos(13.0)) API_UNAVAILABLE(macos, watchos);
 
 
 #pragma mark — Flush
@@ -581,6 +599,21 @@ void ZATrackException(const char *file, int lineNumber, const char *functionName
 
 + (BOOL) isUserLoggedIn;
 
+/**
+ Data will be sent to the  Apptics servers using mobile data is this method is turned on. User can change this preference anytime in Apptics settings.
+ 
+ @param sendData boolean
+ */
+
++ (void) setSendAnalyticsDataUsingMobileData : (BOOL) sendData;
+
+/**
+ Get send user preference to send data to server on moble data.
+ */
+ 
++ (BOOL) sendAnalyticsDataUsingMobileData;
+
+
 #pragma mark — Callbacks
 
 /**
@@ -757,16 +790,16 @@ Enable auto check for update by calling this method after initialising Apptics.
 
 + (void) crash;
 
-//#pragma mark - Cross Promotional Apps
-//
-////#if APPTICS_SWIFT
-//+(void) enableCrossPromotionalAppsList : (bool) status;
-//
-///**
-// Enable Promotional apps with this method.
-//*/
+#pragma mark - Cross Promotional Apps
 
-+(id)getPromotionalAppsViewController : (NSString* _Nullable)sectionHeader1 : (NSString* _Nullable)sectionHeader2;
+//#if AP_CROSS_PROMO
++(void) enableCrossPromotionAppsList : (bool) status API_UNAVAILABLE(macos, tvos, watchos);
+
+/**
+ Enable Promotional apps with this method.
+*/
+
++(id)getPromotionalAppsViewController : (NSString* _Nullable)sectionHeader1 : (NSString* _Nullable)sectionHeader2 API_UNAVAILABLE(macos, tvos, watchos);;
 /**
     Will return a UIViewController with data. You can present this ViewController.
  
@@ -777,7 +810,7 @@ Enable auto check for update by calling this method after initialising Apptics.
  sectionHeader2 : Title of the Apps being shown in the screen for second section. Replacement of "More apps from us"
 */
 
-+(void)presentPromotionalAppsControllerWith: (NSString* _Nullable)sectionHeader1 : (NSString* _Nullable)sectionHeader2;
++(void)presentPromotionalAppsControllerWith: (NSString* _Nullable)sectionHeader1 : (NSString* _Nullable)sectionHeader2 API_UNAVAILABLE(macos, tvos, watchos);;
 /**
     Will present the Promoted apps ViewController directly.
  
