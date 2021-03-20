@@ -13,6 +13,7 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "Apptics",
-            url: "https://github.com/zoho/Apptics/releases/download/\(version)/Apptics.zip", checksum: "adf254c014ca10d1887b6c03b75a8fa27eb29c13fd5be7064648d52d753dea58")
+            path: "Apptics.xcframework"
+        )
     ]
 )
