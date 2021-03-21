@@ -15,7 +15,5 @@ let package = Package(
             name: "Apptics",
             path: "Apptics.xcframework"
         )
-    ],scripts: [
-      .command(name:"docs", "sourcedocs generate --spm-module Danger --output-folder Documentation/reference")
-   ]
+    ]
 )
