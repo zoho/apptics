@@ -14,6 +14,10 @@ let package = Package(
         .binaryTarget(
             name: "Apptics",
             path: "Apptics.xcframework"
+        ),
+        .target(
+            name: "scripts",
+            path:"scripts"
         )
     ]
 )
